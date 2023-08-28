@@ -8,24 +8,22 @@ const catApi = axios.create({
   },
 });
 
-export function fetchBreeds() {
-  return catApi
-    .get('/breeds')
-    .then(resp => {
-      return resp.data;
-    })
-    .catch(error => {
-      throw new Error(error.message);
-    });
+export async function fetchBreeds() {
+  try {
+    const resp = await catApi
+      .get('/breeds');
+    return resp.data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
 }
 
-export function fetchCatByBreed(breedId) {
-  return catApi
-    .get(`/images/search?breed_ids=${breedId}`)
-    .then(resp => {
-      return resp.data;
-    })
-    .catch(error => {
-      throw new Error(error.response.status);
-    });
+export async function fetchCatByBreed(breedId) {
+  try {
+    const resp = await catApi
+      .get(`/images/search?breed_ids=${breedId}`);
+    return resp.data;
+  } catch (error) {
+    throw new Error(error.response.status);
+  }
 }
