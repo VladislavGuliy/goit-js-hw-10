@@ -19,7 +19,7 @@ refs.catInfo.classList.add('visually-hidden');
 fetchBreeds()
   .then(breeds => {
     refs.breedSelect.style.display = 'flex';
-
+console.log(breeds);
     const markup = breeds
       .map(breed => {
         return `<option value= "${breed.id}">${breed.name}</option>`;
@@ -38,7 +38,7 @@ refs.breedSelect.addEventListener('change', onSelectBreed);
 
 function onSelectBreed(event) {
   const breedId = event.currentTarget.value;
-  
+
   refs.loader.classList.replace('visually-hidden', 'loader');
   refs.breedSelect.classList.add('visually-hidden');
   refs.catInfo.classList.add('visually-hidden');
