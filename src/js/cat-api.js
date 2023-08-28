@@ -18,7 +18,7 @@ export async function fetchBreeds() {
       .get('/breeds');
     return resp.data;
   } catch (error) {
-    throw new Error(error.message);
+    throw new Error(error.response.status);
   }
 }
 
