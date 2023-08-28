@@ -15,8 +15,9 @@ axios.defaults.headers.common['x-api-key'] = 'live_M0pIFaq2Ee9EjbJ7AbfsCesAjbqKb
 export function fetchBreeds() {
   return axios
     .get('/breeds')
-    .then(resp => {
-      return resp.data;
+    .then(response => {
+      console.log(response.data);
+      return response.data;
     })
     .catch(error => {
       throw new Error(error.response.status);
@@ -26,8 +27,8 @@ export function fetchBreeds() {
 export function fetchCatByBreed(breedId) {
   return axios
     .get(`/images/search?breed_ids=${breedId}`)
-    .then(resp => {
-      return resp.data;
+    .then(response => {
+      return response.data;
     })
     .catch(error => {
       throw new Error(error.response.status);
