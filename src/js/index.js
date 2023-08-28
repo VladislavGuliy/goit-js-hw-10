@@ -19,7 +19,6 @@ refs.catInfo.classList.add('visually-hidden');
 fetchBreeds()
   .then(breeds => {
     refs.breedSelect.style.display = 'flex';
-console.log(breeds);
     const markup = breeds
       .map(breed => {
         return `<option value= "${breed.id}">${breed.name}</option>`;
