@@ -15,7 +15,7 @@ export function fetchBreeds() {
       return resp.data;
     })
     .catch(error => {
-      throw new Error(error.response.status);
+      throw new Error(error.message);
     });
 }
 
